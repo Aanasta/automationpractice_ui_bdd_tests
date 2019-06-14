@@ -37,5 +37,6 @@ public class ExcelManager {
         Row row = sheet.getRow(cellReference.getRow());
         return row.getCell(cellReference.getCol());
     }
+
 }
 

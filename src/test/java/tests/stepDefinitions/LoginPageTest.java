@@ -51,4 +51,5 @@ public class LoginPageTest extends AbstractStepDefinitions {
         accountPage.userShouldBeRegistered();
         accountPage.logoutButtonShouldBeClickable();
     }
+
 }

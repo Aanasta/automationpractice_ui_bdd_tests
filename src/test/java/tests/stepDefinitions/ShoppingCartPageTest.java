@@ -1,6 +1,7 @@
 package tests.stepDefinitions;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Pending;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import utils.ParsePomManager;
@@ -33,6 +34,7 @@ public class ShoppingCartPageTest extends AbstractStepDefinitions {
     }
 
     @Test
+    @Pending
     public void totalPricesAreEditedInTheShoppingCartTest() {
 
         String totalPriceForBlouseBeforeEdit = getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "C2");
@@ -51,10 +53,19 @@ public class ShoppingCartPageTest extends AbstractStepDefinitions {
 
         //THEN
         shoppingCartPage.blouseShouldBeAddedToCart();
-        shoppingCartPage.totalPriceForBlousesShouldBeAsExpected();
+        shoppingCartPage.totalPriceForBlousesShouldBeAsExpected(totalPriceForBlouseBeforeEdit);
         shoppingCartPage.tshirtShouldBeAddedToCart();
-        shoppingCartPage.totalPriceForTshirtsShouldBeAsExpected();
-        shoppingCartPage.totalPriceForCartShouldBeAsExpected();
+        shoppingCartPage.totalPriceForTshirtsShouldBeAsExpected(totalPriceForTshirtBeforeEdit);
+        shoppingCartPage.totalPriceForCartShouldBeAsExpected(totalPriceForCartBeforeEdit);
+
+        //WHEN
+        shoppingCartPage.userModifiesAmountOfProductsInCart(editedQuantityForBlouse);
+
+        //THEN
+        shoppingCartPage.quantityForBlouseShouldBeAsUserSet(editedQuantityForBlouse);
+        shoppingCartPage.tshirtShouldBeDeleted();
+        shoppingCartPage.totalPriceForEditedBlouseShouldBeAsExpected(totalPriceForBlouseAfterEdit);
+        shoppingCartPage.totalPriceForCartShouldBeAsExpected(totalPriceForCartAfterEdit);
     }
 
 }

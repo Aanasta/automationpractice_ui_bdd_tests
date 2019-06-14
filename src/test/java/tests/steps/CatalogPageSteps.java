@@ -7,18 +7,18 @@ import utils.ParsePomManager;
 public class CatalogPageSteps extends AbstractPageSteps {
 
     @Step
-    public void productsCountShouldBeAsExpected() {
-        Assert.assertEquals("Catalog products count is not as expected", ParsePomManager.getIntPropertyFromPom("expectedProductsCount"), catalogPage.getDisplayedProductsCount());
+    public void productsCountShouldBeAsExpected(int expectedProductsCount) {
+        Assert.assertEquals("Catalog products count is not as expected", expectedProductsCount, catalogPage.getDisplayedProductsCount());
     }
 
     @Step
-    public void tabNameShouldBeWomen() {
-        Assert.assertEquals("Catalog tab name is not as expected", ParsePomManager.getStringPropertyFromPom("expectedCategoryName"), catalogPage.getCategoryNameText());
+    public void tabNameShouldBeAsExpected(String expectedCategoryName) {
+        Assert.assertEquals("Catalog tab name is not as expected", expectedCategoryName, catalogPage.getCategoryNameText());
     }
 
     @Step
-    public void subcategoriesNumberShouldBeAsExpected() {
-        Assert.assertEquals("Number of subcategories is not expected", ParsePomManager.getIntPropertyFromPom("expectedSubcategoriesCount"), catalogPage.getSubcategoriesCount());
+    public void subcategoriesNumberShouldBeAsExpected(int expectedSubcategoriesCount) {
+        Assert.assertEquals("Number of subcategories is not expected", expectedSubcategoriesCount, catalogPage.getSubcategoriesCount());
     }
 
     @Step
@@ -27,8 +27,8 @@ public class CatalogPageSteps extends AbstractPageSteps {
     }
 
     @Step
-    public void filtersNumberShouldBeAsExpected() {
-        Assert.assertEquals("Number of filters is not as expected", ParsePomManager.getIntPropertyFromPom("expectedFiltersCount"), catalogPage.getFiltersCount());
+    public void filtersNumberShouldBeAsExpected(int expectedFiltersCount) {
+        Assert.assertEquals("Number of filters is not as expected", expectedFiltersCount, catalogPage.getFiltersCount());
     }
 
     @Step

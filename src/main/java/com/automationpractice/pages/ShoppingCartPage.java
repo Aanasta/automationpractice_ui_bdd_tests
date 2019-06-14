@@ -1,63 +1,58 @@
 package com.automationpractice.pages;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import static utils.ExcelManager.getDataFromCell;
-import static utils.ParsePomManager.getStringPropertyFromPom;
 
 public class ShoppingCartPage extends AbstractPage {
 
     @FindBy(xpath = "//p[contains(@class,'cart_navigation')]//span")
-    private WebElement proceedToCheckoutButton;
+    private WebElementFacade proceedToCheckoutButton;
 
     @FindBy(id = "cgv")
-    private WebElement agreeToTermsCheckbox;
+    private WebElementFacade agreeToTermsCheckbox;
 
     @FindBy(className = "bankwire")
-    private WebElement bankwirePaymentButton;
+    private WebElementFacade bankwirePaymentButton;
 
     @FindBy(xpath = "//p[@id='cart_navigation']//button")
-    private WebElement confirmOrderButton;
+    private WebElementFacade confirmOrderButton;
 
     @FindBy(xpath = "//p[@class='cheque-indent']/strong")
-    private WebElement orderConfirmationMessage;
+    private WebElementFacade orderConfirmationMessage;
 
     @FindBy(xpath = "//span[@class='price']/strong")
-    private WebElement orderAmount;
+    private WebElementFacade orderAmount;
 
     @FindBy(xpath = "//a[@title='Back to orders']")
-    private WebElement backToOrdersButton;
+    private WebElementFacade backToOrdersButton;
 
     @FindBy(xpath = "//span[@class='ajax_cart_quantity unvisible']")
-    private WebElement productsInCartCounter;
+    private WebElementFacade productsInCartCounter;
 
     @FindBy(name = "quantity_2_7_0_0")
-    private WebElement blouseQuantityInput;
+    private WebElementFacade blouseQuantityInput;
 
     @FindBy(className = "icon-plus")
-    private WebElement plusQuantityButton;
+    private WebElementFacade plusQuantityButton;
 
     @FindBy(xpath = "//p/a[.='Blouse']")
-    private WebElement blouseInCartTitle;
+    private WebElementFacade blouseInCartTitle;
 
     @FindBy(id = "total_product_price_2_7_0")
-    private WebElement totalPriceForBlouse;
+    private WebElementFacade totalPriceForBlouse;
 
     @FindBy(xpath = "//p/a[.='Faded Short Sleeve T-shirts']")
-    private WebElement tshirtInCartTitle;
+    private WebElementFacade tshirtInCartTitle;
 
     @FindBy(id = "total_product_price_1_1_0")
-    private WebElement totalPriceForTshirt;
+    private WebElementFacade totalPriceForTshirt;
 
     @FindBy(id = "total_price")
-    private WebElement totalPriceForCart;
+    private WebElementFacade totalPriceForCart;
 
     @FindBy(xpath = "//a[@id='cart_quantity_down_1_1_0_0']//i")
-    private WebElement tshirtQuantityMinusButton;
-
-    private static final String TSHIRT_QUANTITY_MINUS_BUTTON = "//a[@id='cart_quantity_down_1_1_0_0']//i";
+    private WebElementFacade tshirtQuantityMinusButton;
 
     //Navigate between Shopping cart tabs to purchase selected products be logged in user.
     // Please notice the steps will be different for not logged in user
@@ -86,10 +81,10 @@ public class ShoppingCartPage extends AbstractPage {
         return this.productsInCartCounter.getAttribute("innerText");
     }
 
-    public void setBlouseQuantityFromKeyboard(String cellAddress) {
+    public void setBlouseQuantityFromKeyboard(String newQuantity) {
         this.blouseQuantityInput.clear();
-        String editedQuantityForBlouse = getDataFromCell(getStringPropertyFromPom("excelPricelistPath"), cellAddress);
-        this.blouseQuantityInput.sendKeys(editedQuantityForBlouse);
+//        String editedQuantityForBlouse = getDataFromCell(getStringPropertyFromPom("excelPricelistPath"), cellAddress);
+        this.blouseQuantityInput.sendKeys(newQuantity);
     }
 
     public String getBlousesQuantity() {
@@ -122,11 +117,11 @@ public class ShoppingCartPage extends AbstractPage {
 
     public void setTshirtQuantityByMinusButton() {
         this.tshirtQuantityMinusButton.click();
-        getWaiter().waitForElementToDisappear(TSHIRT_QUANTITY_MINUS_BUTTON);
+//        this.tshirtQuantityMinusButton.waitUntil;
     }
 
     private void clickProceedToCheckout() {
-//        proceedToCheckoutButton.wai;
+        this.proceedToCheckoutButton.waitUntilClickable();
         proceedToCheckoutButton.click();
     }
 

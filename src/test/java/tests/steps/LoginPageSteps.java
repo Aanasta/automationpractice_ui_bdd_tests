@@ -21,4 +21,5 @@ public class LoginPageSteps extends AbstractPageSteps {
         loginPage.fillAddressData(address, city, state, postalCode, country, phoneNumber);
         loginPage.registerNewUser();
     }
+
 }

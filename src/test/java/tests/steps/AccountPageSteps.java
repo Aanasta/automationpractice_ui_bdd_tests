@@ -28,5 +28,4 @@ public class AccountPageSteps extends AbstractPageSteps {
         Assert.assertEquals("Registered user is not logged in", ParsePomManager.getStringPropertyFromPom("newUserName"), accountPage.getLoggedInUsername());
     }
 
-
 }

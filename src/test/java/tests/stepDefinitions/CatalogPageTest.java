@@ -3,12 +3,18 @@ package tests.stepDefinitions;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import utils.ParsePomManager;
 
 @RunWith(SerenityRunner.class)
 public class CatalogPageTest extends AbstractStepDefinitions {
 
     @Test
     public void catalogPageIsOpenedTest() {
+
+        int expectedProductsCount = ParsePomManager.getIntPropertyFromPom("expectedProductsCount");
+        String expectedCategoryName = ParsePomManager.getStringPropertyFromPom("expectedCategoryName");
+        int expectedSubcategoriesCount = ParsePomManager.getIntPropertyFromPom("expectedSubcategoriesCount");
+        int expectedFiltersCount = ParsePomManager.getIntPropertyFromPom("expectedFiltersCount");
 
         //GIVEN
         mainPage.mainPageIsOpened();
@@ -18,11 +24,11 @@ public class CatalogPageTest extends AbstractStepDefinitions {
 
         //THEN
         catalogPage.productsShouldBeDisplayed();
-        catalogPage.productsCountShouldBeAsExpected();
-        catalogPage.tabNameShouldBeWomen();
-        catalogPage.subcategoriesNumberShouldBeAsExpected();
+        catalogPage.productsCountShouldBeAsExpected(expectedProductsCount);
+        catalogPage.tabNameShouldBeAsExpected(expectedCategoryName);
+        catalogPage.subcategoriesNumberShouldBeAsExpected(expectedSubcategoriesCount);
         catalogPage.filtersShouldBeAvailable();
-        catalogPage.filtersNumberShouldBeAsExpected();
+        catalogPage.filtersNumberShouldBeAsExpected(expectedFiltersCount);
     }
 
     @Test
@@ -42,4 +48,5 @@ public class CatalogPageTest extends AbstractStepDefinitions {
         catalogPage.priceFilterShouldBeApplied();
         catalogPage.sortingOptionShouldBeApplied();
     }
+
 }

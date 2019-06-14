@@ -36,7 +36,6 @@ public class MainPageSteps extends AbstractPageSteps {
         Assert.assertTrue("Search bar is not available", mainPage.isSearchBarAvailable());
     }
 
-
     @Step
     public void userOpensWomenTabInCatalogPage() {
         mainPage.openWomenTab();

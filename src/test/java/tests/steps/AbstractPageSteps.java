@@ -27,4 +27,5 @@ public class AbstractPageSteps {
     public void userOpensMainPage() {
         abstractPage.clickLogoAndOpenMainPage();
     }
+
 }

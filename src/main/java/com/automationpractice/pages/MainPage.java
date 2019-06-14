@@ -26,11 +26,9 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//a[@title='Women']")
     private WebElementFacade womenTabLabel;
 
-    //this element is one of the randomly selected Products, if the Product is deleted/updated update the element
     @FindBy(xpath = "//ul[@id='homefeatured']//img[@title='Faded Short Sleeve T-shirts']")
     private WebElementFacade tshirtContainer;
 
-    //this element is one of the randomly selected Products, if the Product is deleted/updated update the element
     @FindBy(xpath = "//ul[@id='homefeatured']//img[@title='Blouse']")
     private WebElementFacade blouseContainer;
 
@@ -92,7 +90,7 @@ public class MainPage extends AbstractPage {
     }
 
     private void clickProceedToCheckoutPopupButton() {
-        this.proceedToCheckoutPopupButton.waitUntilClickable();
+        this.proceedToCheckoutPopupButton.waitUntilVisible();
         this.proceedToCheckoutPopupButton.click();
     }
 
@@ -101,7 +99,6 @@ public class MainPage extends AbstractPage {
         this.continueShoppingPopupButton.click();
     }
 
-    //Add Blouse and continue shopping
     public void addBlouseAndContinueShopping() {
         hoverBlouseProductContainer();
         clickAddBlouseToCartButton();

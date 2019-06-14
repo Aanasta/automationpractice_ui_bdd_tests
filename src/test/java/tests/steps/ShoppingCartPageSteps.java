@@ -4,8 +4,6 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import utils.ParsePomManager;
 
-import static utils.ExcelManager.getDataFromCell;
-
 public class ShoppingCartPageSteps extends AbstractPageSteps {
 
     @Step
@@ -39,8 +37,8 @@ public class ShoppingCartPageSteps extends AbstractPageSteps {
     }
 
     @Step
-    public void totalPriceForBlousesShouldBeAsExpected() {
-        Assert.assertEquals("Total price for the added blouse is not calculated as expected", getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "C2"), shoppingCartPage.getTotalPriceForBlouse());
+    public void totalPriceForBlousesShouldBeAsExpected(String totalPriceForBlouseBeforeEdit) {
+        Assert.assertEquals("Total price for the added blouse is not calculated as expected", totalPriceForBlouseBeforeEdit, shoppingCartPage.getTotalPriceForBlouse());
     }
 
     @Step
@@ -50,14 +48,35 @@ public class ShoppingCartPageSteps extends AbstractPageSteps {
     }
 
     @Step
-    public void totalPriceForTshirtsShouldBeAsExpected() {
-        Assert.assertEquals("Total price for the added tShirt is not calculated as expected", getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "C3"), shoppingCartPage.getTotalPriceForTshirt());
+    public void totalPriceForTshirtsShouldBeAsExpected(String totalPriceForTshirtBeforeEdit) {
+        Assert.assertEquals("Total price for the added tShirt is not calculated as expected", totalPriceForTshirtBeforeEdit, shoppingCartPage.getTotalPriceForTshirt());
     }
 
     @Step
-    public void totalPriceForCartShouldBeAsExpected() {
-        Assert.assertEquals("Total price for the Cart is not calculated as expected", getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "C4"), shoppingCartPage.getTotalPriceForCart());
+    public void totalPriceForCartShouldBeAsExpected(String totalPriceForCart) {
+        Assert.assertEquals("Total price for the Cart is not calculated as expected", totalPriceForCart, shoppingCartPage.getTotalPriceForCart());
     }
 
+    @Step
+    public void userModifiesAmountOfProductsInCart(String newQuantity) {
+        shoppingCartPage.setBlouseQuantityFromKeyboard(newQuantity);
+        shoppingCartPage.setTshirtQuantityByMinusButton();
+    }
+
+    @Step
+    public void quantityForBlouseShouldBeAsUserSet(String editedQuantityForBlouse) {
+        Assert.assertEquals("Quantity was not set from keyboard as expected", editedQuantityForBlouse, shoppingCartPage.getBlousesQuantity());
+
+    }
+
+    @Step
+    public void tshirtShouldBeDeleted() {
+        Assert.assertFalse("Quantity was not set to 0 and the product was not deleted", shoppingCartPage.isTshirtAddedToTheCart());
+    }
+
+    @Step
+    public void totalPriceForEditedBlouseShouldBeAsExpected(String totalPriceForBlouseAfterEdit) {
+        Assert.assertEquals("Total price for the edited products quantity is not calculated as expected", totalPriceForBlouseAfterEdit, shoppingCartPage.getTotalPriceForBlouse());
+    }
 
 }

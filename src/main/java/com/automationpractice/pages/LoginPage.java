@@ -21,7 +21,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "email_create")
     private WebElementFacade emailForRegistrationInput;
 
-    @FindBy(id = "SubmitCreate")
+    @FindBy(xpath = "//button[@name='SubmitCreate']")
     private WebElementFacade createAccountButton;
 
     @FindBy(id = "id_gender1")
@@ -71,7 +71,12 @@ public class LoginPage extends AbstractPage {
 
     public void registerEmail() {
         this.emailForRegistrationInput.sendKeys(generateRegistrationEmail());
+        this.createAccountButton.waitUntilEnabled();
         this.createAccountButton.click();
+        if (this.createAccountButton.isDisplayed()) {
+            this.createAccountButton.click();
+        }
+        this.createAccountButton.waitUntilNotVisible();
     }
 
     private String generateRegistrationEmail() {
@@ -80,9 +85,9 @@ public class LoginPage extends AbstractPage {
     }
 
     public void fillPersonalData(String firstName, String lastName, String password) {
-        waitFor(String.valueOf(maleGenderButton.isVisible()));
-//        getWaiter().waitForElementToBeClickable(this.maleGenderButton);
+        this.maleGenderButton.waitUntilVisible();
         this.maleGenderButton.click();
+        this.firstNameInput.waitUntilVisible();
         this.firstNameInput.sendKeys(firstName);
         this.lastNameInput.sendKeys(lastName);
         this.passwordInput.sendKeys(password);
@@ -98,6 +103,7 @@ public class LoginPage extends AbstractPage {
     }
 
     private void selectStateFromDropdown(String state) {
+        this.stateDropdown.waitUntilVisible();
         Select stateFromDropdown = new Select(this.stateDropdown);
         stateFromDropdown.selectByVisibleText(state);
     }
@@ -110,4 +116,5 @@ public class LoginPage extends AbstractPage {
     public void registerNewUser() {
         this.registerButton.click();
     }
+
 }
