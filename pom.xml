@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <serenity.version>1.9.45</serenity.version>
-        <serenity.maven.version>1.9.45</serenity.maven.version>
+        <serenity.version>2.0.48</serenity.version>
+        <serenity.maven.version>2.0.48</serenity.maven.version>
         <webdriver.driver>chrome</webdriver.driver>
         <validUserEmail>validemail@gmail.com</validUserEmail>
         <validUserPassword>11111</validUserPassword>
@@ -94,11 +94,6 @@
                             <goals>
                                 <goal>read-project-properties</goal>
                             </goals>
-                            <configuration>
-                                <files>
-                                    <file>etc/config/dev.properties</file>
-                                </files>
-                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -111,9 +106,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.0</version>
-                    <configuration>
-                        <testFailureIgnore>true</testFailureIgnore>
-                    </configuration>
                 </plugin>
                 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -128,7 +120,7 @@
                 </dependencies>
                 <configuration>
                     <includes>
-                        <include>**/*test.java</include>
+                        <include>**/*Test.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
