@@ -1,10 +1,10 @@
-package tests.steps;
+package com.automationpractice.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
+import com.automationpractice.utils.ParsePomManager;
 
-public class MainPageSteps extends AbstractPageSteps {
+public class MainPageSteps extends AbstractSteps {
 
     @Step
     public void userSearchesForProduct(String searchedProduct) {
@@ -36,15 +36,8 @@ public class MainPageSteps extends AbstractPageSteps {
         Assert.assertTrue("Search bar is not available", mainPage.isSearchBarAvailable());
     }
 
-    @Step
-    public void userOpensWomenTabInCatalogPage() {
-        mainPage.openWomenTab();
-    }
 
-    @Step
-    public void userClicksBuyTshirtAndGoesToShoppingCart() {
-        mainPage.addTshirtAndGoToShoppingCart();
-    }
+
 
     @Step
     public void userAddsBlouseToCartAndContinuesShopping() {

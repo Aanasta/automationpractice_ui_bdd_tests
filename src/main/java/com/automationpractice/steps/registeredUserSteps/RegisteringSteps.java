@@ -1,18 +1,11 @@
-package tests.steps;
+package com.automationpractice.steps.registeredUserSteps;
 
+import com.automationpractice.steps.AbstractSteps;
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
-public class LoginPageSteps extends AbstractPageSteps {
-
-    @Step
-    public void loginPageIsOpened() {
-        loginPage.open();
-    }
-
-    @Step
-    public void registeredUserLogsIntoAccount(String email, String password) {
-        loginPage.loginToProfile(email, password);
-    }
+public class RegisteringSteps extends AbstractSteps {
 
     @Step
     public void userFillsRequiredFieldsAndClicksRegister(String firstName, String lastName, String password, String address, String city, String state, String postalCode, String country, String phoneNumber) {
@@ -20,6 +13,11 @@ public class LoginPageSteps extends AbstractPageSteps {
         loginPage.fillPersonalData(firstName, lastName, password);
         loginPage.fillAddressData(address, city, state, postalCode, country, phoneNumber);
         loginPage.registerNewUser();
+    }
+
+    @Step
+    public void userShouldBeRegistered() {
+        Assert.assertEquals("Registered user is not logged in", ParsePomManager.getStringPropertyFromPom("newUserName"), accountPage.getLoggedInUsername());
     }
 
 }

@@ -1,35 +1,18 @@
-package tests.steps;
+package com.automationpractice.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
 
-public class ShoppingCartPageSteps extends AbstractPageSteps {
+public class ShoppingCartPageSteps extends AbstractSteps {
 
-    @Step
-    public void userNavigatesViaPurchaseWizardAndCompletesOrder() {
-        shoppingCartPage.completePurchaseByLoggedinUser();
-    }
 
-    @Step
-    public void orderConfirmationMessageShouldBeDisplayed() {
-        Assert.assertEquals("Order is not completed", ParsePomManager.getStringPropertyFromPom("orderConfirmationMessage"), shoppingCartPage.getOrderConfirmationMessage());
-    }
 
-    @Step
-    public void orderAmountShouldBeAsSetByUser() {
-        Assert.assertEquals("Order amount is not as expected", ParsePomManager.getStringPropertyFromPom("orderAmount"), shoppingCartPage.getOrderAmount());
-    }
 
-    @Step
-    public void backToOrdersButtonShouldBeVisible() {
-        Assert.assertTrue("Back to orders button is not available", shoppingCartPage.isBackToOrdersButtonAvailable());
-    }
 
-    @Step
-    public void shoppingCartShouldBeEmpty() {
-        Assert.assertEquals("There are still products in the Shopping Cart", "0", shoppingCartPage.getProductsInCartCount());
-    }
+
+
+
+
 
     @Step
     public void blouseShouldBeAddedToCart() {

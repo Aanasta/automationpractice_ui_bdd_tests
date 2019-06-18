@@ -1,4 +1,4 @@
-package utils;
+package com.automationpractice.utils;
 
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.ss.usermodel.*;
