@@ -16,15 +16,15 @@ public class registeredUserLogsInTest extends AbstractStepDefinitions {
         String password = ParsePomManager.getStringPropertyFromPom("validUserPassword");
 
         //GIVEN
-        loginSteps.loginPageIsOpened();
+        loggingInSteps.loginPageIsOpened();
 
         //WHEN
-        loginSteps.registeredUserLogsIntoAccount(email, password);
+        loggingInSteps.registeredUserLogsIntoAccount(email, password);
 
         //THEN
-        loginSteps.accountPageShouldBeOpened();
-        loginSteps.userShouldBeLoggedIn();
-        loginSteps.logoutButtonShouldBeClickable();
+        loggingInSteps.accountPageShouldBeOpened();
+        loggingInSteps.userShouldBeLoggedIn();
+        loggingInSteps.logoutButtonShouldBeClickable();
     }
 
 }

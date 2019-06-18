@@ -1,4 +1,4 @@
-package com.automationpractice.steps.registeredUserSteps;
+package com.automationpractice.steps;
 
 import com.automationpractice.steps.AbstractSteps;
 import com.automationpractice.utils.ParsePomManager;
@@ -7,7 +7,7 @@ import org.junit.Assert;
 
 import static com.automationpractice.pages.SearchResultsPage.getSearchResultsPageUrl;
 
-public class ProductsSearchingSteps extends AbstractSteps {
+public class SearchingProductsSteps extends AbstractSteps {
 
     @Step
     public void userSearchesForProduct(String searchedProduct) {

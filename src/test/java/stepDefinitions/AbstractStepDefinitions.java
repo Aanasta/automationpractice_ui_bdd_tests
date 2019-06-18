@@ -1,8 +1,6 @@
 package stepDefinitions;
 
-import com.automationpractice.steps.MainPageSteps;
-import com.automationpractice.steps.ShoppingCartPageSteps;
-import com.automationpractice.steps.registeredUserSteps.*;
+import com.automationpractice.steps.*;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.WebDriver;
@@ -13,27 +11,18 @@ public class AbstractStepDefinitions {
     WebDriver driver;
 
     @Steps
-    protected LoggingInSteps loginSteps;
+    protected OpeningMainPageSteps openingMainPageSteps;
 
     @Steps
-    protected RegisteringSteps registrationSteps;
+    protected LoggingInSteps loggingInSteps;
 
     @Steps
-    protected ProductOrderingSteps productOrderingSteps;
+    protected OrderingProductsSteps orderingProductsSteps;
 
     @Steps
-    protected ProductsSearchingSteps productsSearchingSteps;
+    protected SearchingProductsSteps searchingProductsSteps;
 
     @Steps
-    protected CatalogUsingSteps usingCatalogSteps;
-
-    @Steps
-    protected MainPageSteps mainPage;
-
-    @Steps
-    protected CatalogPageSteps catalogPage;
-
-    @Steps
-    protected ShoppingCartPageSteps shoppingCartPage;
+    protected UsingCatalogSteps usingCatalogSteps;
 
 }

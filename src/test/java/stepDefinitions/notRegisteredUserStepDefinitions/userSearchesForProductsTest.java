@@ -15,16 +15,16 @@ public class userSearchesForProductsTest extends AbstractStepDefinitions {
         String searchedProduct = ParsePomManager.getStringPropertyFromPom("productSearchQuery");
 
         //GIVEN
-        mainPage.mainPageIsOpened();
+        openingMainPageSteps.mainPageIsOpened();
 
         //WHEN
-        productsSearchingSteps.userSearchesForProduct(searchedProduct);
+        searchingProductsSteps.userSearchesForProduct(searchedProduct);
 
         //THEN
-        productsSearchingSteps.searchResultsPageShouldBeOpened();
-        productsSearchingSteps.searchResultsShouldBeDisplayed();
-        productsSearchingSteps.numberOfResultsShouldBeAsExpected();
-        productsSearchingSteps.searchedProductShouldBeDisplayedInResults(searchedProduct);
+        searchingProductsSteps.searchResultsPageShouldBeOpened();
+        searchingProductsSteps.searchResultsShouldBeDisplayed();
+        searchingProductsSteps.numberOfResultsShouldBeAsExpected();
+        searchingProductsSteps.searchedProductShouldBeDisplayedInResults(searchedProduct);
     }
 
 }

@@ -12,15 +12,15 @@ public class userOpensMainPageTest extends AbstractStepDefinitions {
     public void mainPageIsOpenedTest() {
 
         //WHEN
-        mainPage.mainPageIsOpened();
+        openingMainPageSteps.mainPageIsOpened();
 
         //THEN
-        mainPage.productsShouldBeDisplayed();
-        mainPage.searchBarShouldBeAvailable();
-        mainPage.numberOfProductsShouldBeAsExpected();
-        mainPage.mainLogoShouldBeDisplayed();
-        mainPage.mainLogoUrlShouldBeAsExpected();
-        mainPage.shoppingCartButtonShouldBeClickable();
+        openingMainPageSteps.productsShouldBeDisplayed();
+        openingMainPageSteps.searchBarShouldBeAvailable();
+        openingMainPageSteps.numberOfProductsShouldBeAsExpected();
+        openingMainPageSteps.mainLogoShouldBeDisplayed();
+        openingMainPageSteps.mainLogoUrlShouldBeAsExpected();
+        openingMainPageSteps.shoppingCartButtonShouldBeClickable();
     }
 
 }

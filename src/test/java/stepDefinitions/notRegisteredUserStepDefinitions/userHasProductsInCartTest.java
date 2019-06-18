@@ -20,18 +20,18 @@ public class userHasProductsInCartTest extends AbstractStepDefinitions {
         String totalPriceForCartBeforeEdit = getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "C4");
 
         //GIVEN
-        mainPage.mainPageIsOpened();
+        openingMainPageSteps.mainPageIsOpened();
 
         //WHEN
-        mainPage.userAddsBlouseToCartAndContinuesShopping();
-        mainPage.userAddsTshirtToCartAndGoesToCart();
+        orderingProductsSteps.userAddsBlouseToCartAndContinuesShopping();
+        orderingProductsSteps.userAddsTshirtToCartAndGoesToCart();
 
         //THEN
-        shoppingCartPage.blouseShouldBeAddedToCart();
-        shoppingCartPage.totalPriceForBlousesShouldBeAsExpected(totalPriceForBlouseBeforeEdit);
-        shoppingCartPage.tshirtShouldBeAddedToCart();
-        shoppingCartPage.totalPriceForTshirtsShouldBeAsExpected(totalPriceForTshirtBeforeEdit);
-        shoppingCartPage.totalPriceForCartShouldBeAsExpected(totalPriceForCartBeforeEdit);
+        orderingProductsSteps.blouseShouldBeAddedToCart();
+        orderingProductsSteps.totalPriceForBlousesShouldBeAsExpected(totalPriceForBlouseBeforeEdit);
+        orderingProductsSteps.tshirtShouldBeAddedToCart();
+        orderingProductsSteps.totalPriceForTshirtsShouldBeAsExpected(totalPriceForTshirtBeforeEdit);
+        orderingProductsSteps.totalPriceForCartShouldBeAsExpected(totalPriceForCartBeforeEdit);
 
     }
 
@@ -44,18 +44,18 @@ public class userHasProductsInCartTest extends AbstractStepDefinitions {
         String totalPriceForCartAfterEdit = getDataFromCell(ParsePomManager.getStringPropertyFromPom("excelPricelistPath"), "E4");
 
         //GIVEN
-        mainPage.mainPageIsOpened();
-        mainPage.userAddsBlouseToCartAndContinuesShopping();
-        mainPage.userAddsTshirtToCartAndGoesToCart();
+        openingMainPageSteps.mainPageIsOpened();
+        orderingProductsSteps.userAddsBlouseToCartAndContinuesShopping();
+        orderingProductsSteps.userAddsTshirtToCartAndGoesToCart();
 
         //WHEN
-        shoppingCartPage.userModifiesAmountOfProductsInCart(editedQuantityForBlouse);
+        orderingProductsSteps.userModifiesAmountOfProductsInCart(editedQuantityForBlouse);
 
         //THEN
-        shoppingCartPage.quantityForBlouseShouldBeAsUserSet(editedQuantityForBlouse);
-        shoppingCartPage.tshirtShouldBeDeleted();
-        shoppingCartPage.totalPriceForEditedBlouseShouldBeAsExpected(totalPriceForBlouseAfterEdit);
-        shoppingCartPage.totalPriceForCartShouldBeAsExpected(totalPriceForCartAfterEdit);
+        orderingProductsSteps.quantityForBlouseShouldBeAsUserSet(editedQuantityForBlouse);
+        orderingProductsSteps.tshirtShouldBeDeleted();
+        orderingProductsSteps.totalPriceForEditedBlouseShouldBeAsExpected(totalPriceForBlouseAfterEdit);
+        orderingProductsSteps.totalPriceForCartShouldBeAsExpected(totalPriceForCartAfterEdit);
     }
 
 }

@@ -1,14 +1,20 @@
 package com.automationpractice.steps;
 
+import com.automationpractice.steps.AbstractSteps;
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import com.automationpractice.utils.ParsePomManager;
 
-public class MainPageSteps extends AbstractSteps {
+public class OpeningMainPageSteps extends AbstractSteps {
 
     @Step
-    public void userSearchesForProduct(String searchedProduct) {
-        mainPage.searchForProduct(searchedProduct);
+    public void mainPageIsOpened() {
+        mainPage.open();
+    }
+
+    @Step
+    public void userOpensMainPage() {
+        mainPage.clickLogoAndOpenMainPage();
     }
 
     @Step
@@ -36,17 +42,9 @@ public class MainPageSteps extends AbstractSteps {
         Assert.assertTrue("Search bar is not available", mainPage.isSearchBarAvailable());
     }
 
-
-
-
     @Step
-    public void userAddsBlouseToCartAndContinuesShopping() {
-        mainPage.addBlouseAndContinueShopping();
-    }
-
-    @Step
-    public void userAddsTshirtToCartAndGoesToCart() {
-        mainPage.addTshirtAndGoToShoppingCart();
+    public void productsShouldBeDisplayed() {
+        Assert.assertTrue("Products are not displayed on the page", abstractPage.isProductContainerDisplayed());
     }
 
 }

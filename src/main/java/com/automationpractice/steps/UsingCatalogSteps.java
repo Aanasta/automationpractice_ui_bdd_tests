@@ -1,11 +1,10 @@
-package com.automationpractice.steps.registeredUserSteps;
+package com.automationpractice.steps;
 
-import com.automationpractice.steps.AbstractSteps;
 import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
-public class CatalogUsingSteps extends AbstractSteps {
+public class UsingCatalogSteps extends AbstractSteps {
 
     @Step
     public void userOpensWomenTabInCatalogPage() {

@@ -16,19 +16,19 @@ public class registeredUserOrdersProductTest extends AbstractStepDefinitions {
         String password = ParsePomManager.getStringPropertyFromPom("validUserPassword");
 
         //GIVEN
-        loginSteps.loginPageIsOpened();
-        loginSteps.registeredUserLogsIntoAccount(email, password);
-        productOrderingSteps.userOpensMainPage();
+        loggingInSteps.loginPageIsOpened();
+        loggingInSteps.registeredUserLogsIntoAccount(email, password);
+        openingMainPageSteps.userOpensMainPage();
 
         //WHEN
-        productOrderingSteps.userClicksBuyTshirtAndGoesToShoppingCart();
-        productOrderingSteps.userNavigatesViaPurchaseWizardAndCompletesOrder();
+        orderingProductsSteps.userClicksBuyTshirtAndGoesToShoppingCart();
+        orderingProductsSteps.userNavigatesViaPurchaseWizardAndCompletesOrder();
 
         //THEN
-        productOrderingSteps.orderConfirmationMessageShouldBeDisplayed();
-        productOrderingSteps.orderAmountShouldBeAsSetByUser();
-        productOrderingSteps.shoppingCartShouldBeEmpty();
-        productOrderingSteps.backToOrdersButtonShouldBeVisible();
+        orderingProductsSteps.orderConfirmationMessageShouldBeDisplayed();
+        orderingProductsSteps.orderAmountShouldBeAsSetByUser();
+        orderingProductsSteps.shoppingCartShouldBeEmpty();
+        orderingProductsSteps.backToOrdersButtonShouldBeVisible();
     }
 
 }

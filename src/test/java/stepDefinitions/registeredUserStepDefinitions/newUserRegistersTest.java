@@ -2,7 +2,6 @@ package stepDefinitions.registeredUserStepDefinitions;
 
 import com.automationpractice.utils.ParsePomManager;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Pending;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stepDefinitions.AbstractStepDefinitions;
@@ -11,7 +10,7 @@ import stepDefinitions.AbstractStepDefinitions;
 public class newUserRegistersTest extends AbstractStepDefinitions {
 
     @Test
-    @Pending
+//    @Pending
     public void userIsRegisteredTest() {
 
         String firstName = ParsePomManager.getStringPropertyFromPom("newUserFirstName");
@@ -25,15 +24,15 @@ public class newUserRegistersTest extends AbstractStepDefinitions {
         String phoneNumber = ParsePomManager.getStringPropertyFromPom("newUserPhone");
 
         //GIVEN
-        registrationSteps.loginPageIsOpened();
+        loggingInSteps.loginPageIsOpened();
 
         //WHEN
-        registrationSteps.userFillsRequiredFieldsAndClicksRegister(firstName, lastName, password, address, city, state, postalCode, country, phoneNumber);
+        loggingInSteps.userFillsRequiredFieldsAndClicksRegister(firstName, lastName, password, address, city, state, postalCode, country, phoneNumber);
 
         //THEN
-        registrationSteps.accountPageShouldBeOpened();
-        registrationSteps.userShouldBeRegistered();
-        registrationSteps.logoutButtonShouldBeClickable();
+        loggingInSteps.accountPageShouldBeOpened();
+        loggingInSteps.userShouldBeRegistered();
+        loggingInSteps.logoutButtonShouldBeClickable();
     }
 
 }

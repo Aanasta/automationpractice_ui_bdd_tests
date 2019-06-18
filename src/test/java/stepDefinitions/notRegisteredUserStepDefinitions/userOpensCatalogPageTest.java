@@ -18,13 +18,13 @@ public class userOpensCatalogPageTest extends AbstractStepDefinitions {
         int expectedFiltersCount = ParsePomManager.getIntPropertyFromPom("expectedFiltersCount");
 
         //GIVEN
-        mainPage.mainPageIsOpened();
+        openingMainPageSteps.mainPageIsOpened();
 
         //WHEN
         usingCatalogSteps.userOpensWomenTabInCatalogPage();
 
         //THEN
-        usingCatalogSteps.productsShouldBeDisplayed();
+        openingMainPageSteps.productsShouldBeDisplayed();
         usingCatalogSteps.productsCountShouldBeAsExpected(expectedProductsCount);
         usingCatalogSteps.tabNameShouldBeAsExpected(expectedCategoryName);
         usingCatalogSteps.subcategoriesNumberShouldBeAsExpected(expectedSubcategoriesCount);
@@ -36,7 +36,7 @@ public class userOpensCatalogPageTest extends AbstractStepDefinitions {
     public void catalogPageIsFilteredAndSortedTest() {
 
         //GIVEN
-        mainPage.mainPageIsOpened();
+        openingMainPageSteps.mainPageIsOpened();
         usingCatalogSteps.userOpensWomenTabInCatalogPage();
 
         //WHEN
