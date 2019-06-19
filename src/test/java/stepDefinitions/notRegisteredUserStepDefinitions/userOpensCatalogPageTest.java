@@ -32,22 +32,22 @@ public class userOpensCatalogPageTest extends AbstractStepDefinitions {
         usingCatalogSteps.filtersNumberShouldBeAsExpected(expectedFiltersCount);
     }
 
-    @Test
-    public void catalogPageIsFilteredAndSortedTest() {
-
-        //GIVEN
-        openingMainPageSteps.mainPageIsOpened();
-        usingCatalogSteps.userOpensWomenTabInCatalogPage();
-
-        //WHEN
-        usingCatalogSteps.userSetsPriceSlider();
-        usingCatalogSteps.userSortsProductsOnThePage();
-
-        //THEN
-        usingCatalogSteps.loadingSpinnerShouldBeDisplayed();
-        usingCatalogSteps.loadingSpinnerImageShouldBeAsExpected();
-        usingCatalogSteps.priceFilterShouldBeApplied();
-        usingCatalogSteps.sortingOptionShouldBeApplied();
-    }
+//    @Test
+//    public void catalogPageIsFilteredAndSortedTest() {
+//
+//        //GIVEN
+//        openingMainPageSteps.mainPageIsOpened();
+//        usingCatalogSteps.userOpensWomenTabInCatalogPage();
+//
+//        //WHEN
+//        usingCatalogSteps.userSetsPriceSlider();
+//        usingCatalogSteps.userSortsProductsOnThePage();
+//
+//        //THEN
+//        usingCatalogSteps.loadingSpinnerShouldBeDisplayed();
+//        usingCatalogSteps.loadingSpinnerImageShouldBeAsExpected();
+//        usingCatalogSteps.priceFilterShouldBeApplied();
+//        usingCatalogSteps.sortingOptionShouldBeApplied();
+//    }
 
 }
