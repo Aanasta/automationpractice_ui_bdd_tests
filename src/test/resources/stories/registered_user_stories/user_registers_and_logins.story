@@ -1,4 +1,10 @@
+Meta:
+@acceptanceSuite
+
 Scenario: Registered user successfully logs into account
+Meta:
+@smokeSuite
+
 
 Given login page is opened
 When registered user logs into account with <email> and <password>
@@ -11,6 +17,7 @@ Examples:
 |validemail@gmail.com|11111|Jane Doe|
 
 Scenario: New user registers and creates his account
+
 Given login page is opened
 When user fills email field with his email
 When user fills personal data fields with his <firstName>, <lastName>, and <password>

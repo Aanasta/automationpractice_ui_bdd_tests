@@ -1,3 +1,6 @@
+Meta:
+@suite Acceptance
+
 Scenario: Registered user logs in and orders a product
 
 Given login page is opened

@@ -1,3 +1,7 @@
+Meta:
+@acceptanceSuite
+@smokeSuite
+
 Scenario: Unregistered user searches for products
 
 Given main page is opened
