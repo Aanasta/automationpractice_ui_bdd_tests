@@ -9,36 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <serenity.version>1.9.45</serenity.version>
-        <serenity.maven.version>1.9.45</serenity.maven.version>
+        <serenity.version>2.0.48</serenity.version>
+        <serenity.maven.version>2.0.48</serenity.maven.version>
         <webdriver.driver>chrome</webdriver.driver>
         <serenity.jbehave.version>1.46.0</serenity.jbehave.version>
-        <validUserEmail>validemail@gmail.com</validUserEmail>
-        <validUserPassword>11111</validUserPassword>
-        <validUserName>Jane Doe</validUserName>
-        <newUserPassword>22222</newUserPassword>
-        <newUserFirstName>John</newUserFirstName>
-        <newUserLastName>Snow</newUserLastName>
-        <newUserAddress>New streeet, 1/1</newUserAddress>
-        <newUserCity>New York</newUserCity>
-        <newUserState>New York</newUserState>
-        <newUserPostalCode>10001</newUserPostalCode>
-        <newUserCountry>United States</newUserCountry>
-        <newUserPhone>+12015001292</newUserPhone>
-        <newUserName>John Snow</newUserName>
-        <mainLogoUrl>http://automationpractice.com/</mainLogoUrl>
-        <popularProductsCount>7</popularProductsCount>
-        <!--<productSearchQuery>Blouse</productSearchQuery>-->
-        <!--<expectedSearchResultsCount>1</expectedSearchResultsCount>-->
-        <excelPricelistPath>ShoppingCartTestdata.xlsx</excelPricelistPath>
-        <orderConfirmationMessage>Your order on My Store is complete.</orderConfirmationMessage>
-        <orderAmount>$18.51</orderAmount>
-        <expectedProductsCount>7</expectedProductsCount>
-        <expectedCategoryName>Women</expectedCategoryName>
-        <expectedSubcategoriesCount>2</expectedSubcategoriesCount>
-        <expectedFiltersCount>9</expectedFiltersCount>
-        <expectedSortingOption>Price: Highest first</expectedSortingOption>
-        <expectedPriceRange>$27.10 - $41.53</expectedPriceRange>
     </properties>
 
     <dependencies>
@@ -58,58 +32,22 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.17</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.17</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13-beta-1</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model</artifactId>
-            <version>3.3.9</version>
-        </dependency>
-        <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-jbehave</artifactId>
             <version>${serenity.jbehave.version}</version>
-            <!--<scope>test</scope>-->
-        </dependency>
-        <dependency>
-            <groupId>org.jbehave</groupId>
-            <artifactId>jbehave-core</artifactId>
-            <version>4.4</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>properties-maven-plugin</artifactId>
-                    <version>1.0.0</version>
-                    <executions>
-                        <execution>
-                            <phase>initialize</phase>
-                            <goals>
-                                <goal>read-project-properties</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -120,7 +58,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.0</version>
                     <configuration>
-                        <skip>true</skip>
+                        <testFailureIgnore>true</testFailureIgnore>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -136,7 +74,7 @@
                 </dependencies>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/TestRunner.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
