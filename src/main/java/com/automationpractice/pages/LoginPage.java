@@ -85,7 +85,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public void fillPersonalData(String firstName, String lastName, String password) {
-        this.maleGenderButton.waitUntilEnabled();
+        this.maleGenderButton.waitUntilVisible();
         this.maleGenderButton.click();
         this.firstNameInput.waitUntilEnabled();
         this.firstNameInput.sendKeys(firstName);

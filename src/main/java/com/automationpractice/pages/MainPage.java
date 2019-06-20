@@ -90,7 +90,7 @@ public class MainPage extends AbstractPage {
     }
 
     private void clickProceedToCheckoutPopupButton() {
-        this.proceedToCheckoutPopupButton.waitUntilVisible();
+        this.proceedToCheckoutPopupButton.isPresent();
         this.proceedToCheckoutPopupButton.click();
     }
 

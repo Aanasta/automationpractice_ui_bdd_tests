@@ -1,12 +1,11 @@
-package jbehave.unregisteredUserStepDefinitions;
+package jbehave.stepsDefinitions;
 
-import com.automationpractice.utils.ParsePomManager;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
 
-public class UserOpensCatalogPageStepDefinitions extends AbstractStepDefinitions {
+public class UsingCatalogStepDefinitions extends AbstractStepDefinitions {
 
     @When("user goes to the catalog page")
     public void userOpensWomenTabInCatalogPage() {
@@ -18,9 +17,9 @@ public class UserOpensCatalogPageStepDefinitions extends AbstractStepDefinitions
         catalogPage.setPriceFilterByMovingSlider();
     }
 
-    @When("user sorts products")
-    public void userSortsProductsOnThePage() {
-        catalogPage.setSorting(ParsePomManager.getStringPropertyFromPom("expectedSortingOption"));
+    @When("user sorts products in <sortingOrder>")
+    public void userSortsProductsOnThePage(@Named("sortingOrder") String sortingOrder) {
+        catalogPage.setSorting(sortingOrder);
     }
 
     @Then("loading spinner should be displayed")
@@ -33,14 +32,14 @@ public class UserOpensCatalogPageStepDefinitions extends AbstractStepDefinitions
         Assert.assertEquals("Loading spinner image source is not as expected", catalogPage.getLoadingSpinnerExpectedSrc(), catalogPage.getLoadingSpinnerSrc());
     }
 
-    @Then("price filter should be applied")
-    public void priceFilterShouldBeApplied() {
-        Assert.assertEquals("Price filter is not set as expected", ParsePomManager.getStringPropertyFromPom("expectedPriceRange"), catalogPage.getPriceRange());
+    @Then("price filter <priceRange> should be applied")
+    public void priceFilterShouldBeApplied(@Named("priceRange") String priceRange) {
+        Assert.assertEquals("Price filter is not set as expected", priceRange, catalogPage.getPriceRange());
     }
 
-    @Then("sorting order should be applied")
-    public void sortingOptionShouldBeApplied() {
-        Assert.assertEquals("Sorting option is not set as expected", ParsePomManager.getStringPropertyFromPom("expectedSortingOption"), catalogPage.getSorting());
+    @Then("<sortingOrder> should be applied")
+    public void sortingOptionShouldBeApplied(@Named("sortingOrder") String sortingOrder) {
+        Assert.assertEquals("Sorting option is not set as expected", sortingOrder, catalogPage.getSorting());
     }
 
     @Then("products quantity in the catalog should be <expectedProductsQuantity>")

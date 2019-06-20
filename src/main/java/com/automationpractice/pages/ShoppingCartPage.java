@@ -128,7 +128,7 @@ public class ShoppingCartPage extends AbstractPage {
     }
 
     private void checkTermsCheckbox() {
-        this.agreeToTermsCheckbox.isDisplayed();
+        this.agreeToTermsCheckbox.isEnabled();
         this.agreeToTermsCheckbox.click();
     }
 

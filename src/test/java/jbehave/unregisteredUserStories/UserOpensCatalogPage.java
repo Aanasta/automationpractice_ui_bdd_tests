@@ -1,4 +1,4 @@
-package jbehave.stories;
+package jbehave.unregisteredUserStories;
 
 import net.serenitybdd.jbehave.SerenityStory;
 

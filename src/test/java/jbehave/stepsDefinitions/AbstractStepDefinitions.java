@@ -1,4 +1,4 @@
-package jbehave.unregisteredUserStepDefinitions;
+package jbehave.stepsDefinitions;
 
 import com.automationpractice.pages.*;
 import org.jbehave.core.annotations.Given;
