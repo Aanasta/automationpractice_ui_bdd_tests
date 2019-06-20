@@ -66,78 +66,77 @@ public class ShoppingCartPage extends AbstractPage {
     }
 
     public String getOrderConfirmationMessage() {
-        return this.orderConfirmationMessage.getText();
+        return orderConfirmationMessage.getText();
     }
 
     public String getOrderAmount() {
-        return this.orderAmount.getText();
+        return orderAmount.getText();
     }
 
     public boolean isBackToOrdersButtonAvailable() {
-        return this.backToOrdersButton.isEnabled();
+        return backToOrdersButton.isEnabled();
     }
 
     public String getProductsInCartCount() {
-        return this.productsInCartCounter.getAttribute("innerText");
+        return productsInCartCounter.getAttribute("innerText");
     }
 
     public void setBlouseQuantityFromKeyboard(String newQuantity) {
-        this.blouseQuantityInput.clear();
-//        String editedQuantityForBlouse = getDataFromCell(getStringPropertyFromPom("excelPricelistPath"), cellAddress);
-        this.blouseQuantityInput.sendKeys(newQuantity);
+        blouseQuantityInput.clear();
+        blouseQuantityInput.sendKeys(newQuantity);
         blouseQuantityInput.waitUntilEnabled();
         blouseQuantityInput.click();
     }
 
     public String getBlousesQuantity() {
-        return this.blouseQuantityInput.getAttribute("value");
+        return blouseQuantityInput.getAttribute("value");
     }
 
     public boolean isBlouseAddedToTheCart() {
-        return this.blouseInCartTitle.isDisplayed();
+        return blouseInCartTitle.isDisplayed();
     }
 
     public String getTotalPriceForBlouse() {
-        return this.totalPriceForBlouse.getText();
+        return totalPriceForBlouse.getText();
     }
 
     public boolean isTshirtAddedToTheCart() {
         try {
-            return this.tshirtInCartTitle.isDisplayed();
+            return tshirtInCartTitle.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
     }
 
     public String getTotalPriceForTshirt() {
-        return this.totalPriceForTshirt.getText();
+        return totalPriceForTshirt.getText();
     }
 
     public String getTotalPriceForCart() {
-        return this.totalPriceForCart.getText();
+        return totalPriceForCart.getText();
     }
 
     public void setTshirtQuantityByMinusButton() {
-        this.tshirtQuantityMinusButton.click();
+        tshirtQuantityMinusButton.click();
         tshirtQuantityMinusButton.waitUntilNotVisible();
     }
 
     private void clickProceedToCheckout() {
-        this.proceedToCheckoutButton.waitUntilClickable();
+        proceedToCheckoutButton.waitUntilClickable();
         proceedToCheckoutButton.click();
     }
 
     private void checkTermsCheckbox() {
-        this.agreeToTermsCheckbox.isEnabled();
-        this.agreeToTermsCheckbox.click();
+        agreeToTermsCheckbox.isEnabled();
+        agreeToTermsCheckbox.click();
     }
 
     private void clickBankwirePaymentButton() {
-        this.bankwirePaymentButton.click();
+        bankwirePaymentButton.click();
     }
 
     private void clickConfirmOrderButton() {
-        this.confirmOrderButton.click();
+        confirmOrderButton.click();
     }
 
 }

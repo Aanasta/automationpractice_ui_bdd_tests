@@ -49,7 +49,7 @@ public class CatalogPage extends AbstractPage {
     private static final String LOADING_SPINNER_EXPECTED_SRC = "http://automationpractice.com/img/loader.gif";
 
     public String getCategoryNameText() {
-        return this.categoryNameText.getText();
+        return categoryNameText.getText();
     }
 
     public int getSubcategoriesCount() {
@@ -57,7 +57,7 @@ public class CatalogPage extends AbstractPage {
     }
 
     public boolean isFiltersBlockDisplayed() {
-        return this.filtersBlock.isDisplayed();
+        return filtersBlock.isDisplayed();
     }
 
     public int getFiltersCount() {
@@ -74,28 +74,28 @@ public class CatalogPage extends AbstractPage {
     }
 
     public void setSorting(String sortingOption) {
-        Select sortBy = new Select(this.sortByDropdown);
+        Select sortBy = new Select(sortByDropdown);
         sortBy.selectByVisibleText(sortingOption);
     }
 
     public boolean isLoadingSpinnerDisplayed() {
-        return this.loadingSpinnerImage.isDisplayed();
+        return loadingSpinnerImage.isDisplayed();
     }
 
     public String getLoadingSpinnerSrc() {
-        return this.loadingSpinnerImage.getAttribute("src");
+        return loadingSpinnerImage.getAttribute("src");
     }
 
     public String getPriceRange() {
-        return this.priceRangeValue.getText();
+        return priceRangeValue.getText();
     }
 
     public String getSorting() {
-        return this.appliedSortingOption.getText();
+        return appliedSortingOption.getText();
     }
 
     private int getSliderWidth() {
-        return this.priceSlider.getSize().getWidth();
+        return priceSlider.getSize().getWidth();
     }
 
 }
