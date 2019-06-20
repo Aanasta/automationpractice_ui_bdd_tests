@@ -13,32 +13,6 @@
         <serenity.maven.version>1.9.45</serenity.maven.version>
         <webdriver.driver>chrome</webdriver.driver>
         <serenity.jbehave.version>1.46.0</serenity.jbehave.version>
-        <validUserEmail>validemail@gmail.com</validUserEmail>
-        <validUserPassword>11111</validUserPassword>
-        <validUserName>Jane Doe</validUserName>
-        <newUserPassword>22222</newUserPassword>
-        <newUserFirstName>John</newUserFirstName>
-        <newUserLastName>Snow</newUserLastName>
-        <newUserAddress>New streeet, 1/1</newUserAddress>
-        <newUserCity>New York</newUserCity>
-        <newUserState>New York</newUserState>
-        <newUserPostalCode>10001</newUserPostalCode>
-        <newUserCountry>United States</newUserCountry>
-        <newUserPhone>+12015001292</newUserPhone>
-        <newUserName>John Snow</newUserName>
-        <mainLogoUrl>http://automationpractice.com/</mainLogoUrl>
-        <popularProductsCount>7</popularProductsCount>
-        <!--<productSearchQuery>Blouse</productSearchQuery>-->
-        <!--<expectedSearchResultsCount>1</expectedSearchResultsCount>-->
-        <excelPricelistPath>ShoppingCartTestdata.xlsx</excelPricelistPath>
-        <orderConfirmationMessage>Your order on My Store is complete.</orderConfirmationMessage>
-        <orderAmount>$18.51</orderAmount>
-        <expectedProductsCount>7</expectedProductsCount>
-        <expectedCategoryName>Women</expectedCategoryName>
-        <expectedSubcategoriesCount>2</expectedSubcategoriesCount>
-        <expectedFiltersCount>9</expectedFiltersCount>
-        <expectedSortingOption>Price: Highest first</expectedSortingOption>
-        <expectedPriceRange>$27.10 - $41.53</expectedPriceRange>
     </properties>
 
     <dependencies>
