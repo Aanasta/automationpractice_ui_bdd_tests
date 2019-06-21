@@ -5,7 +5,6 @@ Scenario: Registered user successfully logs into account
 Meta:
 @smokeSuite
 
-
 Given login page is opened
 When registered user logs into account with <email> and <password>
 Then user's account page should be opened
@@ -15,6 +14,7 @@ Then user should be able to logout
 Examples:
 |email|password|username|
 |validemail@gmail.com|11111|Jane Doe|
+
 
 Scenario: New user registers and creates his account
 

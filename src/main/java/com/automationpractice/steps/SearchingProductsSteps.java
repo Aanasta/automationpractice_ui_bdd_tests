@@ -1,36 +1,35 @@
-//package com.automationpractice.steps;
-//
-//import com.automationpractice.steps.AbstractSteps;
-//import com.automationpractice.utils.ParsePomManager;
-//import net.thucydides.core.annotations.Step;
-//import org.junit.Assert;
-//
-//import static com.automationpractice.pages.SearchResultsPage.getSearchResultsPageUrl;
-//
-//public class SearchingProductsSteps extends AbstractSteps {
-//
-//    @Step
-//    public void userSearchesForProduct(String searchedProduct) {
-//        mainPage.searchForProduct(searchedProduct);
-//    }
-//
-//    @Step
-//    public void searchResultsPageShouldBeOpened() {
-//        Assert.assertEquals("Search results page is not opened", getSearchResultsPageUrl(), searchResultsPage.getCurrentUrl());
-//    }
-//
-//    @Step
-//    public void searchResultsShouldBeDisplayed() {
-//        Assert.assertTrue("Search results are not displayed", searchResultsPage.isProductContainerDisplayed());
-//    }
-//
-//    @Step
-//    public void numberOfResultsShouldBeAsExpected() {
-//        Assert.assertEquals("Number of search results is not as expected", ParsePomManager.getIntPropertyFromPom("expectedSearchResultsCount"), searchResultsPage.getDisplayedProductsCount());
-//    }
-//
-//    @Step
-//    public void searchedProductShouldBeDisplayedInResults(String searchedProduct) {
-//        Assert.assertEquals("Search is not working as expected", searchedProduct, searchResultsPage.getSearchResultName());
-//    }
-//}
+package com.automationpractice.steps;
+
+import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
+
+import static com.automationpractice.pages.SearchResultsPage.getSearchResultsPageUrl;
+
+public class SearchingProductsSteps extends AbstractSteps {
+
+    @Step
+    public void userSearchesForProduct(String searchedProduct) {
+        mainPage.searchForProduct(searchedProduct);
+    }
+
+    @Step
+    public void searchResultsPageShouldBeOpened() {
+        Assert.assertEquals("Search results page is not opened", getSearchResultsPageUrl(), searchResultsPage.getCurrentUrl());
+    }
+
+    @Step
+    public void searchResultsShouldBeDisplayed() {
+        Assert.assertTrue("Search results are not displayed", searchResultsPage.isProductContainerDisplayed());
+    }
+
+    @Step
+    public void numberOfResultsShouldBeAsExpected(int expectedSearchResultsCount) {
+        Assert.assertEquals("Number of search results is not as expected", expectedSearchResultsCount, searchResultsPage.getDisplayedProductsCount());
+    }
+
+    @Step
+    public void searchedProductShouldBeDisplayedInResults(String searchedProduct) {
+        Assert.assertEquals("Search is not working as expected", searchedProduct, searchResultsPage.getSearchResultName());
+    }
+
+}

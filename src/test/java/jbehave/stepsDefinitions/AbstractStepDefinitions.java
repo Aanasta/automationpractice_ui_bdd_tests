@@ -1,21 +1,20 @@
 package jbehave.stepsDefinitions;
 
-import com.automationpractice.pages.*;
+import com.automationpractice.steps.*;
 import org.jbehave.core.annotations.Given;
 
 public class AbstractStepDefinitions {
 
-    protected AbstractPage abstractPage;
-    protected MainPage mainPage;
-    protected LoginPage loginPage;
-    protected AccountPage accountPage;
-    protected CatalogPage catalogPage;
-    protected ShoppingCartPage shoppingCartPage;
-    protected SearchResultsPage searchResultsPage;
+    protected AbstractSteps abstractSteps;
+    protected LoggingInSteps loggingInSteps;
+    protected OpeningMainPageSteps openingMainPageSteps;
+    OrderingProductsSteps orderingProductsSteps;
+    SearchingProductsSteps searchingProductsSteps;
+    UsingCatalogSteps usingCatalogSteps;
 
     @Given("main page is opened")
     public void mainPageIsOpened() {
-        mainPage.open();
+        abstractSteps.mainPageIsOpened();
     }
 
 }
