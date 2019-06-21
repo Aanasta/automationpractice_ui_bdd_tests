@@ -1,9 +1,6 @@
 package jbehave.stepsDefinitions;
 
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 import org.junit.Assert;
 
 import static com.automationpractice.pages.AccountPage.getAccountPageUrl;
@@ -27,6 +24,7 @@ public class LoginAndRegistrationStepDefinitions extends AbstractStepDefinitions
     }
 
     @When("user fills personal data fields with his <firstName>, <lastName>, and <password>")
+    @Pending
     public void userFillsRegistrationPersonalData(@Named("firstName") String firstName, @Named("lastName") String lastName, @Named("password") String password) {
         loginPage.fillPersonalData(firstName, lastName, password);
     }

@@ -1,3 +1,6 @@
+Meta:
+@acceptanceSuite
+
 Scenario: Unregistered user adds products to the shopping cart
 
 Given main page is opened

@@ -36,8 +36,8 @@ public class AbstractPage extends PageObject {
     }
 
     public void clickLogoAndOpenMainPage() {
-        this.mainLogo.waitUntilVisible();
-        this.mainLogo.click();
+        mainLogo.waitUntilVisible();
+        mainLogo.click();
     }
 
 }

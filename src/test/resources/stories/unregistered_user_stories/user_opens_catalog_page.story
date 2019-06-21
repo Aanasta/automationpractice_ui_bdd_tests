@@ -1,3 +1,6 @@
+Meta:
+@acceptanceSuite
+
 Scenario: Unregistered user filters and sorts Catalog page
 
 Given main page is opened

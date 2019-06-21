@@ -16,7 +16,7 @@ public class SearchResultsPage extends AbstractPage {
     }
 
     public String getSearchResultName() {
-        return this.searchResultName.getText();
+        return searchResultName.getText();
     }
 
 }

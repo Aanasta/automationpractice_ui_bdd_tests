@@ -1,3 +1,6 @@
+Meta:
+@acceptanceSuite
+
 Scenario: Unregistered user opens main page
 
 Given main page is opened

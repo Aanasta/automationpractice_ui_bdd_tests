@@ -61,22 +61,22 @@ public class LoginPage extends AbstractPage {
     }
 
     private void fillRegisteredEmail(String email) {
-        this.registeredEmailInput.sendKeys(email);
+        registeredEmailInput.sendKeys(email);
     }
 
     //Fill registered Password
     private void fillPassword(String password) {
-        this.passwordInput.sendKeys(password);
+        passwordInput.sendKeys(password);
     }
 
     public void registerEmail() {
-        this.emailForRegistrationInput.sendKeys(generateRegistrationEmail());
-        this.createAccountButton.waitUntilEnabled();
-        this.createAccountButton.click();
-        if (this.createAccountButton.isDisplayed()) {
-            this.createAccountButton.click();
+        emailForRegistrationInput.sendKeys(generateRegistrationEmail());
+        createAccountButton.waitUntilEnabled();
+        createAccountButton.click();
+        if (createAccountButton.isDisplayed()) {
+            createAccountButton.click();
         }
-        this.createAccountButton.waitUntilNotVisible();
+        createAccountButton.waitUntilNotVisible();
     }
 
     private String generateRegistrationEmail() {
@@ -85,36 +85,36 @@ public class LoginPage extends AbstractPage {
     }
 
     public void fillPersonalData(String firstName, String lastName, String password) {
-        this.maleGenderButton.waitUntilVisible();
-        this.maleGenderButton.click();
-        this.firstNameInput.waitUntilEnabled();
-        this.firstNameInput.sendKeys(firstName);
-        this.lastNameInput.sendKeys(lastName);
-        this.passwordInput.sendKeys(password);
+        maleGenderButton.waitUntilVisible();
+        maleGenderButton.click();
+        firstNameInput.waitUntilEnabled();
+        firstNameInput.sendKeys(firstName);
+        lastNameInput.sendKeys(lastName);
+        passwordInput.sendKeys(password);
     }
 
     public void fillAddressData(String address, String city, String state, String postalCode, String country, String phone) {
-        this.addressInput.sendKeys(address);
-        this.cityInput.sendKeys(city);
+        addressInput.sendKeys(address);
+        cityInput.sendKeys(city);
         selectStateFromDropdown(state);
-        this.postalCodeInput.sendKeys(postalCode);
+        postalCodeInput.sendKeys(postalCode);
         selectCountryFromDropdown(country);
-        this.mobilePhoneInput.sendKeys(phone);
+        mobilePhoneInput.sendKeys(phone);
     }
 
     private void selectStateFromDropdown(String state) {
-        this.stateDropdown.waitUntilPresent();
-        Select stateFromDropdown = new Select(this.stateDropdown);
+        stateDropdown.waitUntilPresent();
+        Select stateFromDropdown = new Select(stateDropdown);
         stateFromDropdown.selectByVisibleText(state);
     }
 
     private void selectCountryFromDropdown(String country) {
-        Select stateFromDropdown = new Select(this.countryDropdown);
+        Select stateFromDropdown = new Select(countryDropdown);
         stateFromDropdown.selectByVisibleText(country);
     }
 
     public void registerNewUser() {
-        this.registerButton.click();
+        registerButton.click();
     }
 
 }

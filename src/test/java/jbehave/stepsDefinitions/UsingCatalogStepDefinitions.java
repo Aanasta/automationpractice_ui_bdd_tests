@@ -12,7 +12,7 @@ public class UsingCatalogStepDefinitions extends AbstractStepDefinitions {
         mainPage.openWomenTab();
     }
 
-    @When("user sets price slider")
+    @When("user filters products by setting price slider")
     public void userSetsPriceSlider() {
         catalogPage.setPriceFilterByMovingSlider();
     }

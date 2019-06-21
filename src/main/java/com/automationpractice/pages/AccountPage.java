@@ -18,11 +18,11 @@ public class AccountPage extends AbstractPage {
     }
 
     public String getLoggedInUsername() {
-        return this.loggedInUsername.getText();
+        return loggedInUsername.getText();
     }
 
     public boolean isLogoutButtonDisplayed() {
-        return this.logoutButton.isEnabled();
+        return logoutButton.isEnabled();
     }
 
 }

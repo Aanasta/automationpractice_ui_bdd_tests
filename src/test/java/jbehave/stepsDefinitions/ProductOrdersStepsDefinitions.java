@@ -1,9 +1,6 @@
 package jbehave.stepsDefinitions;
 
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 import org.junit.Assert;
 
 public class ProductOrdersStepsDefinitions extends AbstractStepDefinitions {
@@ -14,6 +11,7 @@ public class ProductOrdersStepsDefinitions extends AbstractStepDefinitions {
     }
 
     @When("user makes his order in the order wizard")
+    @Pending
     public void userNavigatesViaPurchaseWizardAndCompletesOrder() {
         shoppingCartPage.completePurchaseByLoggedinUser();
     }
