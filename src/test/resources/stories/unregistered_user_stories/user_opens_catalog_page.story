@@ -13,8 +13,9 @@ Then price filter <priceRange> should be applied
 Then <sortingOrder> should be applied
 
 Examples:
-|sortingOrder|priceFilter|
+|sortingOrder|priceRange|
 |Price: Highest first|$27.10 - $41.53|
+
 
 
 Scenario: Unregistered user opens Catalog page and sees its basic elements

@@ -16,6 +16,8 @@ Examples:
 |blouseTotal|expectedTshirtTotalBeforeEdit|cartTotal|
 |$27.00|$16.51|$45.51|
 
+
+
 Scenario: Unregistered user edits products quantity in the shopping cart
 Given main page is opened
 When user adds blouse to cart
