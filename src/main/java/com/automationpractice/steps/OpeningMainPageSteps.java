@@ -1,14 +1,20 @@
-package tests.steps;
+package com.automationpractice.steps;
 
+import com.automationpractice.steps.AbstractSteps;
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
 
-public class MainPageSteps extends AbstractPageSteps {
+public class OpeningMainPageSteps extends AbstractSteps {
 
     @Step
-    public void userSearchesForProduct(String searchedProduct) {
-        mainPage.searchForProduct(searchedProduct);
+    public void mainPageIsOpened() {
+        mainPage.open();
+    }
+
+    @Step
+    public void userOpensMainPage() {
+        mainPage.clickLogoAndOpenMainPage();
     }
 
     @Step
@@ -37,23 +43,8 @@ public class MainPageSteps extends AbstractPageSteps {
     }
 
     @Step
-    public void userOpensWomenTabInCatalogPage() {
-        mainPage.openWomenTab();
-    }
-
-    @Step
-    public void userClicksBuyTshirtAndGoesToShoppingCart() {
-        mainPage.addTshirtAndGoToShoppingCart();
-    }
-
-    @Step
-    public void userAddsBlouseToCartAndContinuesShopping() {
-        mainPage.addBlouseAndContinueShopping();
-    }
-
-    @Step
-    public void userAddsTshirtToCartAndGoesToCart() {
-        mainPage.addTshirtAndGoToShoppingCart();
+    public void productsShouldBeDisplayed() {
+        Assert.assertTrue("Products are not displayed on the page", abstractPage.isProductContainerDisplayed());
     }
 
 }

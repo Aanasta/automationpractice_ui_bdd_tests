@@ -55,7 +55,7 @@ public class ShoppingCartPage extends AbstractPage {
     private WebElementFacade tshirtQuantityMinusButton;
 
     //Navigate between Shopping cart tabs to purchase selected products be logged in user.
-    // Please notice the steps will be different for not logged in user
+    // Please notice the com.automationpractice.steps will be different for not logged in user
     public void completePurchaseByLoggedinUser() {
         clickProceedToCheckout(); //in the Summary tab
         clickProceedToCheckout(); //in the Address tab
@@ -85,6 +85,8 @@ public class ShoppingCartPage extends AbstractPage {
         this.blouseQuantityInput.clear();
 //        String editedQuantityForBlouse = getDataFromCell(getStringPropertyFromPom("excelPricelistPath"), cellAddress);
         this.blouseQuantityInput.sendKeys(newQuantity);
+        blouseQuantityInput.waitUntilEnabled();
+        blouseQuantityInput.click();
     }
 
     public String getBlousesQuantity() {
@@ -117,7 +119,7 @@ public class ShoppingCartPage extends AbstractPage {
 
     public void setTshirtQuantityByMinusButton() {
         this.tshirtQuantityMinusButton.click();
-//        this.tshirtQuantityMinusButton.waitUntil;
+        tshirtQuantityMinusButton.waitUntilNotVisible();
     }
 
     private void clickProceedToCheckout() {
@@ -126,6 +128,7 @@ public class ShoppingCartPage extends AbstractPage {
     }
 
     private void checkTermsCheckbox() {
+        this.agreeToTermsCheckbox.isDisplayed();
         this.agreeToTermsCheckbox.click();
     }
 

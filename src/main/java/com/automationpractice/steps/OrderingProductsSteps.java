@@ -1,10 +1,16 @@
-package tests.steps;
+package com.automationpractice.steps;
 
+import com.automationpractice.steps.AbstractSteps;
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
 
-public class ShoppingCartPageSteps extends AbstractPageSteps {
+public class OrderingProductsSteps extends AbstractSteps {
+
+    @Step
+    public void userClicksBuyTshirtAndGoesToShoppingCart() {
+        mainPage.addTshirtAndGoToShoppingCart();
+    }
 
     @Step
     public void userNavigatesViaPurchaseWizardAndCompletesOrder() {
@@ -22,13 +28,23 @@ public class ShoppingCartPageSteps extends AbstractPageSteps {
     }
 
     @Step
+    public void shoppingCartShouldBeEmpty() {
+        Assert.assertEquals("There are still products in the Shopping Cart", "0", shoppingCartPage.getProductsInCartCount());
+    }
+
+    @Step
     public void backToOrdersButtonShouldBeVisible() {
         Assert.assertTrue("Back to orders button is not available", shoppingCartPage.isBackToOrdersButtonAvailable());
     }
 
     @Step
-    public void shoppingCartShouldBeEmpty() {
-        Assert.assertEquals("There are still products in the Shopping Cart", "0", shoppingCartPage.getProductsInCartCount());
+    public void userAddsBlouseToCartAndContinuesShopping() {
+        mainPage.addBlouseAndContinueShopping();
+    }
+
+    @Step
+    public void userAddsTshirtToCartAndGoesToCart() {
+        mainPage.addTshirtAndGoToShoppingCart();
     }
 
     @Step

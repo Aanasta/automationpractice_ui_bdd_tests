@@ -1,10 +1,15 @@
-package tests.steps;
+package com.automationpractice.steps;
 
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
 
-public class CatalogPageSteps extends AbstractPageSteps {
+public class UsingCatalogSteps extends AbstractSteps {
+
+    @Step
+    public void userOpensWomenTabInCatalogPage() {
+        mainPage.openWomenTab();
+    }
 
     @Step
     public void productsCountShouldBeAsExpected(int expectedProductsCount) {
@@ -60,8 +65,5 @@ public class CatalogPageSteps extends AbstractPageSteps {
     public void sortingOptionShouldBeApplied() {
         Assert.assertEquals("Sorting option is not set as expected", ParsePomManager.getStringPropertyFromPom("expectedSortingOption"), catalogPage.getSorting());
     }
-
-
-
 
 }

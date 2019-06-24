@@ -1,15 +1,18 @@
-package tests.steps;
+package com.automationpractice.steps;
 
-import com.automationpractice.pages.SearchResultsPage;
+import com.automationpractice.steps.AbstractSteps;
+import com.automationpractice.utils.ParsePomManager;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
-import utils.ParsePomManager;
 
 import static com.automationpractice.pages.SearchResultsPage.getSearchResultsPageUrl;
 
-public class SearchResultsPageSteps extends AbstractPageSteps {
+public class SearchingProductsSteps extends AbstractSteps {
 
-    SearchResultsPage searchResultsPage;
+    @Step
+    public void userSearchesForProduct(String searchedProduct) {
+        mainPage.searchForProduct(searchedProduct);
+    }
 
     @Step
     public void searchResultsPageShouldBeOpened() {
@@ -30,5 +33,4 @@ public class SearchResultsPageSteps extends AbstractPageSteps {
     public void searchedProductShouldBeDisplayedInResults(String searchedProduct) {
         Assert.assertEquals("Search is not working as expected", searchedProduct, searchResultsPage.getSearchResultName());
     }
-
 }

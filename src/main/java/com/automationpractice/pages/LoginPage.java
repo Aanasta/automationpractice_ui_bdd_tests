@@ -85,9 +85,9 @@ public class LoginPage extends AbstractPage {
     }
 
     public void fillPersonalData(String firstName, String lastName, String password) {
-        this.maleGenderButton.waitUntilVisible();
+        this.maleGenderButton.waitUntilEnabled();
         this.maleGenderButton.click();
-        this.firstNameInput.waitUntilVisible();
+        this.firstNameInput.waitUntilEnabled();
         this.firstNameInput.sendKeys(firstName);
         this.lastNameInput.sendKeys(lastName);
         this.passwordInput.sendKeys(password);
@@ -103,7 +103,7 @@ public class LoginPage extends AbstractPage {
     }
 
     private void selectStateFromDropdown(String state) {
-        this.stateDropdown.waitUntilVisible();
+        this.stateDropdown.waitUntilPresent();
         Select stateFromDropdown = new Select(this.stateDropdown);
         stateFromDropdown.selectByVisibleText(state);
     }

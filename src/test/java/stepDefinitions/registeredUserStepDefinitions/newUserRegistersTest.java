@@ -1,32 +1,16 @@
-package tests.stepDefinitions;
+package stepDefinitions.registeredUserStepDefinitions;
 
+import com.automationpractice.utils.ParsePomManager;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import utils.ParsePomManager;
+import stepDefinitions.AbstractStepDefinitions;
 
 @RunWith(SerenityRunner.class)
-public class LoginPageTest extends AbstractStepDefinitions {
+public class newUserRegistersTest extends AbstractStepDefinitions {
 
     @Test
-    public void registeredUserLogsInTest() {
-
-        String email = ParsePomManager.getStringPropertyFromPom("validUserEmail");
-        String password = ParsePomManager.getStringPropertyFromPom("validUserPassword");
-
-        //GIVEN
-        loginPage.loginPageIsOpened();
-
-        //WHEN
-        loginPage.registeredUserLogsIntoAccount(email, password);
-
-        //THEN
-        accountPage.accountPageShouldBeOpened();
-        accountPage.userShouldBeLoggedIn();
-        accountPage.logoutButtonShouldBeClickable();
-    }
-
-    @Test
+//    @Pending
     public void userIsRegisteredTest() {
 
         String firstName = ParsePomManager.getStringPropertyFromPom("newUserFirstName");
@@ -39,17 +23,16 @@ public class LoginPageTest extends AbstractStepDefinitions {
         String country = ParsePomManager.getStringPropertyFromPom("newUserCountry");
         String phoneNumber = ParsePomManager.getStringPropertyFromPom("newUserPhone");
 
-
         //GIVEN
-        loginPage.loginPageIsOpened();
+        loggingInSteps.loginPageIsOpened();
 
         //WHEN
-        loginPage.userFillsRequiredFieldsAndClicksRegister(firstName, lastName, password, address, city, state, postalCode, country, phoneNumber);
+        loggingInSteps.userFillsRequiredFieldsAndClicksRegister(firstName, lastName, password, address, city, state, postalCode, country, phoneNumber);
 
         //THEN
-        accountPage.accountPageShouldBeOpened();
-        accountPage.userShouldBeRegistered();
-        accountPage.logoutButtonShouldBeClickable();
+        loggingInSteps.accountPageShouldBeOpened();
+        loggingInSteps.userShouldBeRegistered();
+        loggingInSteps.logoutButtonShouldBeClickable();
     }
 
 }
