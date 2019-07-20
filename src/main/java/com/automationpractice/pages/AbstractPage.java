@@ -5,7 +5,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.WaitManager;
 
 import java.util.List;
 
@@ -37,14 +36,8 @@ public class AbstractPage extends PageObject {
     }
 
     public void clickLogoAndOpenMainPage() {
-//        getWaiter().waitForElementToBeClickable(this.mainLogo);
-        this.mainLogo.waitUntilVisible();
-        this.mainLogo.click();
+        mainLogo.waitUntilVisible();
+        mainLogo.click();
     }
-
-    WaitManager getWaiter() {
-        return new WaitManager();
-    }
-
 
 }

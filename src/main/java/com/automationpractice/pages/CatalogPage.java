@@ -1,9 +1,8 @@
 package com.automationpractice.pages;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -14,49 +13,43 @@ public class CatalogPage extends AbstractPage {
     private WebElementFacade categoryNameText;
 
     @FindBy(className = "subcategory-image")
-    private List<WebElement> subcategoryImages;
+    private List<WebElementFacade> subcategoryImages;
 
     @FindBy(id = "layered_block_left")
-    private WebElement filtersBlock;
+    private WebElementFacade filtersBlock;
 
     @FindBy(className = "layered_filter")
-    private List<WebElement> catalogFilters;
+    private List<WebElementFacade> catalogFilters;
 
     @FindBy(xpath = "//div[@id='layered_price_slider']/a[1]")
-    private WebElement lowestPriceSlider;
+    private WebElementFacade lowestPriceSlider;
 
     @FindBy(xpath = "//div[@id='layered_price_slider']/a[2]")
-    private WebElement highestPriceSlider;
+    private WebElementFacade highestPriceSlider;
 
     @FindBy(xpath = "//div[@id='layered_price_slider']/div")
-    private WebElement priceSlider;
+    private WebElementFacade priceSlider;
 
     @FindBy(id = "selectProductSort")
-    private WebElement sortByDropdown;
+    private WebElementFacade sortByDropdown;
 
     @FindBy(xpath = "//ul/p/img")
-    private WebElement loadingSpinnerImage;
+    private WebElementFacade loadingSpinnerImage;
 
     @FindBy(id = "layered_price_range")
-    private WebElement priceRangeValue;
+    private WebElementFacade priceRangeValue;
 
     @FindBy(xpath = "//div[@id='uniform-selectProductSort']/span")
-    private WebElement appliedSortingOption;
+    private WebElementFacade appliedSortingOption;
 
     public static String getLoadingSpinnerExpectedSrc() {
         return LOADING_SPINNER_EXPECTED_SRC;
     }
 
-    public static String getCatalogPageUrl() {
-        return CATALOG_PAGE_URL;
-    }
-
-    private static final String CATALOG_PAGE_URL = "http://automationpractice.com/index.php?id_category=3&controller=category";
-
     private static final String LOADING_SPINNER_EXPECTED_SRC = "http://automationpractice.com/img/loader.gif";
 
     public String getCategoryNameText() {
-        return this.categoryNameText.getText();
+        return categoryNameText.getText();
     }
 
     public int getSubcategoriesCount() {
@@ -64,7 +57,7 @@ public class CatalogPage extends AbstractPage {
     }
 
     public boolean isFiltersBlockDisplayed() {
-        return this.filtersBlock.isDisplayed();
+        return filtersBlock.isDisplayed();
     }
 
     public int getFiltersCount() {
@@ -80,34 +73,29 @@ public class CatalogPage extends AbstractPage {
         sliderAction.dragAndDropBy(highestPriceSlider, -offset, 0).build().perform();
     }
 
-    //Set the sorting option for the Catalog page
     public void setSorting(String sortingOption) {
-        Select sortBy = new Select(this.sortByDropdown);
+        Select sortBy = new Select(sortByDropdown);
         sortBy.selectByVisibleText(sortingOption);
     }
 
-    //Check if loading spinner is displayed
     public boolean isLoadingSpinnerDisplayed() {
-        return this.loadingSpinnerImage.isDisplayed();
+        return loadingSpinnerImage.isDisplayed();
     }
 
-    //Check the image for the loading spinner
     public String getLoadingSpinnerSrc() {
-        return this.loadingSpinnerImage.getAttribute("src");
+        return loadingSpinnerImage.getAttribute("src");
     }
 
-    //Check the price range set in the Price filter
     public String getPriceRange() {
-        return this.priceRangeValue.getText();
+        return priceRangeValue.getText();
     }
 
-    //Check the sorting option currently applied to the Catalog
     public String getSorting() {
-        return this.appliedSortingOption.getText();
+        return appliedSortingOption.getText();
     }
 
     private int getSliderWidth() {
-        return this.priceSlider.getSize().getWidth();
+        return priceSlider.getSize().getWidth();
     }
 
 }

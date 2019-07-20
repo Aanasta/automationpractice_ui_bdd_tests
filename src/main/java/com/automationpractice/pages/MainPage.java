@@ -26,11 +26,9 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//a[@title='Women']")
     private WebElementFacade womenTabLabel;
 
-    //this element is one of the randomly selected Products, if the Product is deleted/updated update the element
     @FindBy(xpath = "//ul[@id='homefeatured']//img[@title='Faded Short Sleeve T-shirts']")
     private WebElementFacade tshirtContainer;
 
-    //this element is one of the randomly selected Products, if the Product is deleted/updated update the element
     @FindBy(xpath = "//ul[@id='homefeatured']//img[@title='Blouse']")
     private WebElementFacade blouseContainer;
 
@@ -47,32 +45,32 @@ public class MainPage extends AbstractPage {
     private WebElementFacade addBlouseToCartButton;
 
     public boolean isSearchBarAvailable() {
-        return this.searchBarInput.isDisplayed();
+        return searchBarInput.isDisplayed();
     }
 
     public int getPopularProductsCount() {
-        return this.popularProducts.size();
+        return popularProducts.size();
     }
 
     public boolean isMainLogoDisplayed() {
-        return this.getMainLogo().isDisplayed();
+        return getMainLogo().isDisplayed();
     }
 
     public String getMainLogoUrl() {
-        return this.mainLogoLink.getAttribute("href");
+        return mainLogoLink.getAttribute("href");
     }
 
     public boolean isShoppingCartButtonClickable() {
-        return this.shoppingCartButton.isEnabled();
+        return shoppingCartButton.isEnabled();
     }
 
     public void searchForProduct(String searchedProduct) {
-        this.searchBarInput.sendKeys(searchedProduct);
-        this.searchBarInput.sendKeys(Keys.ENTER);
+        searchBarInput.sendKeys(searchedProduct);
+        searchBarInput.sendKeys(Keys.ENTER);
     }
 
     public void openWomenTab() {
-        this.womenTabLabel.click();
+        womenTabLabel.click();
     }
 
     public void addTshirtAndGoToShoppingCart() {
@@ -81,27 +79,26 @@ public class MainPage extends AbstractPage {
         clickProceedToCheckoutPopupButton();
     }
     private void hoverTshirtProductContainer() {
-        this.tshirtContainer.waitUntilClickable();
+        tshirtContainer.waitUntilClickable();
         Actions builder = new Actions(getDriver());
         builder.moveToElement(tshirtContainer).build().perform();
     }
 
     private void clickAddTshirtToCartButton() {
-        this.addTshirtToCartButton.waitUntilClickable();
-        this.addTshirtToCartButton.click();
+        addTshirtToCartButton.waitUntilClickable();
+        addTshirtToCartButton.click();
     }
 
     private void clickProceedToCheckoutPopupButton() {
-        this.proceedToCheckoutPopupButton.waitUntilClickable();
-        this.proceedToCheckoutPopupButton.click();
+        proceedToCheckoutPopupButton.isPresent();
+        proceedToCheckoutPopupButton.click();
     }
 
     private void clickContinueShoppingPopupButton() {
-        this.continueShoppingPopupButton.waitUntilClickable();
-        this.continueShoppingPopupButton.click();
+        continueShoppingPopupButton.waitUntilClickable();
+        continueShoppingPopupButton.click();
     }
 
-    //Add Blouse and continue shopping
     public void addBlouseAndContinueShopping() {
         hoverBlouseProductContainer();
         clickAddBlouseToCartButton();
@@ -109,14 +106,14 @@ public class MainPage extends AbstractPage {
     }
 
     private void hoverBlouseProductContainer() {
-        this.blouseContainer.waitUntilClickable();
+        blouseContainer.waitUntilClickable();
         Actions builder = new Actions(getDriver());
         builder.moveToElement(blouseContainer).build().perform();
     }
 
     private void clickAddBlouseToCartButton() {
-        this.addBlouseToCartButton.waitUntilClickable();
-        this.addBlouseToCartButton.click();
+        addBlouseToCartButton.waitUntilClickable();
+        addBlouseToCartButton.click();
     }
 
 }
