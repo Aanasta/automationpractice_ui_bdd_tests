@@ -31,4 +31,5 @@ public class SearchingProductsSteps extends AbstractSteps {
     public void isSearchedProductDisplayedInResultsStep(String searchedProduct) {
         Assert.assertEquals("Search is not working as expected", searchedProduct, searchResultsPage.getSearchResultName());
     }
+
 }

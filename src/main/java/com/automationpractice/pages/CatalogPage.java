@@ -64,8 +64,6 @@ public class CatalogPage extends AbstractPage {
         return catalogFilters.size();
     }
 
-    //So far the offset for the slider is hardcoded because the slider width changes dynamically after applying the lowest price limit.
-    //This will be a point for future enhancement
     public void setPriceFilterByMovingSlider() {
         int offset = (int) (getSliderWidth() * 0.3);
         Actions sliderAction = new Actions(getDriver());
