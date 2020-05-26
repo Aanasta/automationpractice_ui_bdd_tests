@@ -15,26 +15,6 @@ public class UsingCatalogSteps extends AbstractSteps {
         Assert.assertEquals("Catalog products count is not as expected", expectedProductsCount, catalogPage.getDisplayedProductsCount());
     }
 
-//    @Step
-//    public void tabNameShouldBeAsExpected(String expectedCategoryName) {
-//        Assert.assertEquals("Catalog tab name is not as expected", expectedCategoryName, catalogPage.getCategoryNameText());
-//    }
-//
-//    @Step
-//    public void subcategoriesNumberShouldBeAsExpected(int expectedSubcategoriesCount) {
-//        Assert.assertEquals("Number of subcategories is not expected", expectedSubcategoriesCount, catalogPage.getSubcategoriesCount());
-//    }
-//
-//    @Step
-//    public void filtersShouldBeAvailable() {
-//        Assert.assertTrue("Filters are not displayed", catalogPage.isFiltersBlockDisplayed());
-//    }
-//
-//    @Step
-//    public void filtersNumberShouldBeAsExpected(int expectedFiltersCount) {
-//        Assert.assertEquals("Number of filters is not as expected", expectedFiltersCount, catalogPage.getFiltersCount());
-//    }
-
     @Step
     public void userSetsPriceSliderStep() {
         catalogPage.setPriceFilterByMovingSlider();
